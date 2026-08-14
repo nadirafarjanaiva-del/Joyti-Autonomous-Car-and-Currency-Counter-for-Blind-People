@@ -5,32 +5,23 @@ import numpy as np
 import time
 from ultralytics import YOLO
 
-# ---------------------------
 # Motor setup
-# ---------------------------
 right_motor = Motor(forward=5, backward=23)
 left_motor = Motor(forward=24, backward=27)
 
 right_speed = PWMOutputDevice(13)
 left_speed = PWMOutputDevice(12)
 
-# ---------------------------
 # Camera setup
-# ---------------------------
 picam2 = Picamera2()
 picam2.configure(picam2.create_preview_configuration(main={"size": (720, 560)}))
 picam2.start()
 picam2.set_controls({"FrameRate": 30})
 
-# ---------------------------
 # YOLOv8 setup
-# ---------------------------
 model = YOLO("yolov8n.pt")  # lightweight model for Pi
 
-# ---------------------------
 # Perspective transform setup
-# ---------------------------
-# Perspective transform points
 source_points = np.float32([[5, 480], [760, 480], [55, 250], [685, 250]])
 destination_points = np.float32([ [100, 240], [280, 240], [100, 0], [280, 0]])
 
@@ -63,17 +54,15 @@ def lane_detection(histogram_lane):
     right_lane_pos = np.argmax(histogram_lane[250:]) + 250
     return left_lane_pos, right_lane_pos
 
-# ---------------------------
+
 # Distance estimation
-# ---------------------------
 def estimate_distance(bbox_width_px, focal_length_px=1280, known_width_cm=6):
     if bbox_width_px <= 0:
         return None
     return (known_width_cm * focal_length_px) / bbox_width_px
 
-# ---------------------------
+
 # Motor controls
-# ---------------------------
 def move_forward():
     left_motor.forward(); right_motor.forward()
     left_speed.value = 0.25; right_speed.value = 0.25
@@ -111,21 +100,17 @@ def Uturn_Right():
     left_speed.value = 0.2; right_speed.value = 0.1
     time.sleep(2.0)
 
-# ---------------------------
-# Main loop
-# ---------------------------
+
 try:
     while True:
         frame = picam2.capture_array()
         if frame is None:
             continue
 
-        # Convert 4-channel (XBGR) to 3-channel BGR for YOLO
         frame_bgr = cv2.cvtColor(frame, cv2.COLOR_RGBA2BGR)
 
-        # ---------------------------
+ 
         # Lane processing
-        # ---------------------------
         for i in range(4):
             cv2.line(frame, tuple(map(int, source_points[i])),
                      tuple(map(int, source_points[(i+1)%4])),
@@ -148,9 +133,8 @@ try:
             result = 0
         print(f"Reuslt {result}")
 
-        # ---------------------------
-        # YOLO Stop Sign Detection (no confidence threshold)
-        # ---------------------------
+      
+        # YOLO Stop Sign Detection 
         results = model.predict(frame_bgr, classes=[11], verbose=False)  # if class 11 = stop sign
         annotated_frame = results[0].plot()
 
@@ -173,9 +157,7 @@ try:
                     move_forward()
                     break
 
-        # ---------------------------
         # Lane motor control (skip if stop detected)
-        # ---------------------------
         if not stop_detected:
             if result == 0:
                 move_forward()
@@ -192,9 +174,8 @@ try:
             elif result <= -5:
                 turn_left_3()
 
-        # ---------------------------
+       
         # Visualization
-        # ---------------------------
         cv2.line(frame_final, (left_lane_pos, 0), (left_lane_pos, 240), (0, 255, 0), 2)
         cv2.line(frame_final, (right_lane_pos, 0), (right_lane_pos, 240), (0, 255, 0), 2)
         cv2.line(frame_final, (188, 0), (188, 240), (255, 0, 0), 2)
