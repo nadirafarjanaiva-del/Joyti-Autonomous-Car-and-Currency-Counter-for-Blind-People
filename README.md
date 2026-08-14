@@ -1,8 +1,4 @@
 # AI-powered assistive system for visually impaired individuals integrating autonomous navigation, AI-based currency recognition, GPS tracking, and safety features.
-Joity: AI-Powered Assistive System for Visually Impaired Individuals
-Overview
-Joity is an integrated assistive technology platform designed to enhance the independence, safety, and social inclusion of visually impaired individuals. The system combines autonomous navigation, AI-based currency recognition, GPS tracking, and safety features into a unified prototype.
-The project was developed using Raspberry Pi, Arduino, Computer Vision, Deep Learning, GPS/GSM communication, and IoT technologies to support outdoor mobility, financial management, and real-time monitoring.
 
 Funding Acknowledgement
 This project was developed as part of a government-funded research and innovation initiative, selected through a competitive funding process under the ICT Division, Government of the People’s Republic of Bangladesh.
@@ -52,8 +48,12 @@ Joity is an integrated assistive technology system developed to support the inde
 •	User presence detection
 •	Servo-controlled access mechanism
 
-System Architecture
-Hardware Components
+# System Architecture
+The Joity system is designed as a modular assistive technology platform consisting of four major subsystems: autonomous navigation, currency recognition, GPS-based tracking, and user safety. These subsystems operate through a combination of Raspberry Pi and Arduino-based processing units, cameras, sensors, communication modules, and machine learning models. The autonomous navigation subsystem processes camera input for lane detection and uses YOLOv8 for stop-sign and obstacle detection, while the currency subsystem provides progressively improved Bangladeshi currency recognition through color sensing, Haar Cascade, and YOLOv11. The GPS tracking subsystem combines GPS and GSM technologies with the Traccar platform for location monitoring, while additional safety mechanisms provide protection through automated door locking, fire detection, and anti-theft functionality. The overall system architecture is shown in the picture segment.
+
+# Hardware Components
+The prototype integrates multiple hardware components to implement its navigation, recognition, tracking, and safety functions. Raspberry Pi 5 serves as the primary processing platform for the autonomous car, while Raspberry Pi 3B+ is used for the currency recognition subsystem. Arduino Uno is utilized for the tracking subsystem and supporting control operations. Cameras provide visual input for computer vision tasks, while the motor driver, GPS, GSM, sensors, servo motors, LCD, and other peripheral modules enable physical movement, communication, monitoring, and safety functions.
+# The major hardware components used in the project are listed below:
 •	Raspberry Pi 5
 •	Raspberry Pi 3B+
 •	Arduino Uno
@@ -68,7 +68,9 @@ Hardware Components
 •	Flame Sensor
 •	Speaker Module
 
-Software and AI Technologies
+# Software & AI Technologies
+The project combines conventional image processing with machine learning and deep learning techniques to implement intelligent assistive functions. Python and OpenCV are used for image acquisition and processing, particularly for lane detection and autonomous vehicle control. YOLOv8 is employed for stop-sign and obstacle detection, while YOLOv11 is used for advanced currency recognition and multiple-note detection. A Haar Cascade Classifier was also implemented as an intermediate machine learning approach for currency detection. Dataset annotation and model development were supported using Label Studio and Google Colab, while Traccar provides the remote location tracking interface.
+# The software, AI models, and development tools used in the project are listed below:
 •	Python
 •	OpenCV
 •	YOLOv8
@@ -78,14 +80,14 @@ Software and AI Technologies
 •	Label Studio
 •	Traccar Platform
  
-Research Contributions
+# Research Contributions
 •	Development of an integrated assistive technology platform for visually impaired individuals.
 •	Application of computer vision and deep learning for autonomous navigation.
 •	AI-based Bangladeshi currency recognition system.
 •	GPS and GSM-enabled real-time monitoring.
 •	Multi-functional prototype combining mobility, finance, and safety support.
 
-Future Work
+# Future Work
 •	Real-world autonomous mobility implementation
 •	PID-based closed-loop speed control
 •	Integration with digital maps and navigation services
@@ -93,9 +95,12 @@ Future Work
 •	Mobile application development
 •	Cloud-based monitoring and analytics
 
-Contact
+# Contact
 For collaborations, research discussions, or project inquiries:
-Nadira Farjana
-Email: nadirafarjanaiva@gmail.com 
+Md. Mahfuzul Haque
+Email: mahfuzul@jstu.ac.bd
 Rabeya Khan
 Email: rabeyakhan592@gmail.com 
+Nadira Farjana
+Email: nadirafarjanaiva@gmail.com 
+
