@@ -9,9 +9,13 @@ This project was developed as part of a government-funded research and innovatio
 The project received financial and institutional support from the ICT Division to facilitate the research, development, and prototyping of an assistive technology system aimed at improving the independence, safety, and mobility of visually impaired individuals.
 We gratefully acknowledge the ICT Division, Government of the People’s Republic of Bangladesh, for its valuable support and funding, which enabled the successful development and implementation of this socially impactful project.
 
-Key Features
+# Project Features
 
-Autonomous Navigation System
+Joity is an integrated assistive technology system developed to support the independent mobility, financial management, safety, and remote monitoring of visually impaired individuals. The project combines autonomous vehicle technology, computer vision, machine learning, GPS/GSM communication, and multiple safety mechanisms into a unified prototype. Its autonomous car uses Raspberry Pi-based image processing for lane detection and navigation, while YOLOv8 enables real-time stop-sign and obstacle detection. The system also incorporates an AI-based currency counter that evolved from a color-sensor-based approach to Haar Cascade, and finally YOLOv11-based currency recognition, enabling multiple Bangladeshi currency notes to be detected from a single frame with improved accuracy. For remote monitoring, GPS and GSM technologies provide real-time location information through SMS, calls, and the Traccar tracking platform, allowing family members or caregivers to monitor the user's location. In addition, automated door locking, fire detection, and anti-theft mechanisms are integrated to enhance the overall safety and security of the user. Together, these features provide a comprehensive assistive platform aimed at improving independence, accessibility, and confidence in the daily activities of visually impaired individuals.
+
+# The key features of the project are listed below:
+
+# Autonomous Navigation System
 •	Lane detection using image processing and OpenCV
 •	Bird's-eye view transformation for road analysis
 •	Real-time steering control
@@ -19,35 +23,29 @@ Autonomous Navigation System
 •	Stop sign detection using YOLOv8
 •	Obstacle detection and avoidance
 •	Raspberry Pi-based autonomous driving prototype
-
- AI-Based Currency Recognition
-Three-stage evolution of the currency recognition system:
-
-Stage 1: Arduino + Color Sensor
+# AI-Based Currency Recognition
+# Three-stage evolution of the currency recognition system:
+# Stage 1: Arduino + Color Sensor
 •	Taka note recognition using TCS3200 sensor
 •	Wallet balance management
 •	Audio feedback for users
-
-Stage 2: Machine Learning Approach
+# Stage 2: Machine Learning Approach
 •	Haar Cascade Classifier implementation
-•	Raspberry Pi-based image processing.
-
-Stage 3: Deep Learning Enhancement
+•	Raspberry Pi-based image processing
+# Stage 3: Deep Learning Enhancement
 •	Currency detection using YOLOv11
 •	Multiple note recognition in a single frame
 •	Detection accuracy: 87.3% – 99.5%
 •	Dataset annotation using Label Studio
 •	Model training using Google Colab
-
- GPS Tracking and Monitoring
+# GPS Tracking and Monitoring
 •	Real-time location tracking
 •	GPS-based coordinate acquisition
 •	GSM communication module
 •	SMS location sharing
 •	Google Maps integration
 •	Remote monitoring using Traccar
-
- Safety Features
+# Safety Features
 •	Automatic door lock system
 •	Fire detection and alarm
 •	Anti-theft protection
