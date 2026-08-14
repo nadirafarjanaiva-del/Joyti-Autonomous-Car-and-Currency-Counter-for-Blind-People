@@ -1,16 +1,11 @@
-#!/usr/bin/env python3
-"""
-Raspberry Pi Multi Taka Note Detector (Picamera2 version)
-Detects 10, 50, 100, and 500 Taka notes using multiple Haar cascades.
-"""
-
+# Raspberry Pi Taka Note Detector
 import cv2
 import time
 import os
 import subprocess
 from picamera2 import Picamera2
 
-# === Configuration ===
+# Configuration 
 CASCADE_FILES = {
     "10": "/home/pi/cascades/10_taka.xml",
     "50": "/home/pi/cascades/50_taka.xml",
@@ -21,11 +16,11 @@ CASCADE_FILES = {
 SCALE_FACTOR = 1.2
 MIN_NEIGHBORS = 4
 MIN_SIZE = (60, 30)
-DETECTION_COOLDOWN = 1.5  # seconds between voice alerts
+DETECTION_COOLDOWN = 1.5  
 OUTDIR = "/home/pi/detections"
 os.makedirs(OUTDIR, exist_ok=True)
 
-# === Load cascades ===
+# Load cascades
 cascades = {}
 for label, path in CASCADE_FILES.items():
     if not os.path.exists(path):
@@ -40,7 +35,7 @@ for label, path in CASCADE_FILES.items():
 if not cascades:
     raise RuntimeError("No valid cascades loaded!")
 
-# === Initialize camera ===
+# Initialize camera
 picam2 = Picamera2()
 config = picam2.create_preview_configuration(main={"size": (640, 480), "format": "BGR888"})
 picam2.configure(config)
@@ -57,7 +52,7 @@ def speak(text: str):
     except FileNotFoundError:
         pass
 
-# === Main loop ===
+# Main 
 while True:
     # Capture directly in BGR — no need for color conversion
     frame = picam2.capture_array()
@@ -80,7 +75,7 @@ while True:
                         cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
             detected_labels.append(label)
 
-    # --- If any note detected, announce & save image ---
+    # If any note detected, announce & save image
     now = time.time()
     if detected_labels and (now - last_detection_time) > DETECTION_COOLDOWN:
         last_detection_time = now
@@ -91,12 +86,11 @@ while True:
         print(f"[{timestamp}] Detected: {notes} taka → saved {fname}")
         speak(f"Detected {notes} taka")
 
-    # --- Display window ---
+    # Display window
     cv2.imshow("Multi Taka Detector", frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
-# === Cleanup ===
 cv2.destroyAllWindows()
 picam2.stop()
 print("Detection stopped.")
