@@ -3,13 +3,14 @@ Joity: AI-Powered Assistive System for Visually Impaired Individuals
 Overview
 Joity is an integrated assistive technology platform designed to enhance the independence, safety, and social inclusion of visually impaired individuals. The system combines autonomous navigation, AI-based currency recognition, GPS tracking, and safety features into a unified prototype.
 The project was developed using Raspberry Pi, Arduino, Computer Vision, Deep Learning, GPS/GSM communication, and IoT technologies to support outdoor mobility, financial management, and real-time monitoring.
+
 Funding Acknowledgement
-This project was developed under a government-funded research and innovation initiative.
-Funding Agency: ICT Division, Government of the People's Republic of Bangladesh
-Funding Scheme: Competitive Research and Innovation Program
-We gratefully acknowledge the support of the ICT Division for enabling the development of this socially impactful assistive technology.
+This project was developed as part of a government-funded research and innovation initiative, selected through a competitive funding process under the ICT Division, Government of the People’s Republic of Bangladesh.
+The project received financial and institutional support from the ICT Division to facilitate the research, development, and prototyping of an assistive technology system aimed at improving the independence, safety, and mobility of visually impaired individuals.
+We gratefully acknowledge the ICT Division, Government of the People’s Republic of Bangladesh, for its valuable support and funding, which enabled the successful development and implementation of this socially impactful project.
 
 Key Features
+
 Autonomous Navigation System
 •	Lane detection using image processing and OpenCV
 •	Bird's-eye view transformation for road analysis
@@ -18,21 +19,26 @@ Autonomous Navigation System
 •	Stop sign detection using YOLOv8
 •	Obstacle detection and avoidance
 •	Raspberry Pi-based autonomous driving prototype
+
  AI-Based Currency Recognition
 Three-stage evolution of the currency recognition system:
+
 Stage 1: Arduino + Color Sensor
 •	Taka note recognition using TCS3200 sensor
 •	Wallet balance management
 •	Audio feedback for users
+
 Stage 2: Machine Learning Approach
 •	Haar Cascade Classifier implementation
-•	Raspberry Pi-based image processing
+•	Raspberry Pi-based image processing.
+
 Stage 3: Deep Learning Enhancement
 •	Currency detection using YOLOv11
 •	Multiple note recognition in a single frame
 •	Detection accuracy: 87.3% – 99.5%
 •	Dataset annotation using Label Studio
 •	Model training using Google Colab
+
  GPS Tracking and Monitoring
 •	Real-time location tracking
 •	GPS-based coordinate acquisition
@@ -40,6 +46,7 @@ Stage 3: Deep Learning Enhancement
 •	SMS location sharing
 •	Google Maps integration
 •	Remote monitoring using Traccar
+
  Safety Features
 •	Automatic door lock system
 •	Fire detection and alarm
@@ -62,6 +69,7 @@ Hardware Components
 •	LCD Display
 •	Flame Sensor
 •	Speaker Module
+
 Software and AI Technologies
 •	Python
 •	OpenCV
@@ -71,7 +79,6 @@ Software and AI Technologies
 •	Google Colab
 •	Label Studio
 •	Traccar Platform
-Project Structure
  
 Research Contributions
 •	Development of an integrated assistive technology platform for visually impaired individuals.
@@ -90,7 +97,7 @@ Future Work
 
 Contact
 For collaborations, research discussions, or project inquiries:
-Rabeya Khan
-Email: rabeyakhan592@gmail.com 
 Nadira Farjana
 Email: nadirafarjanaiva@gmail.com 
+Rabeya Khan
+Email: rabeyakhan592@gmail.com 
