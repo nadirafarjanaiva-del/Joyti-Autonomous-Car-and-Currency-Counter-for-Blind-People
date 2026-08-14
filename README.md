@@ -8,7 +8,7 @@ This project was developed under a government-funded research and innovation ini
 Funding Agency: ICT Division, Government of the People's Republic of Bangladesh
 Funding Scheme: Competitive Research and Innovation Program
 We gratefully acknowledge the support of the ICT Division for enabling the development of this socially impactful assistive technology.
-________________________________________
+
 Key Features
 Autonomous Navigation System
 •	Lane detection using image processing and OpenCV
@@ -46,7 +46,7 @@ Stage 3: Deep Learning Enhancement
 •	Anti-theft protection
 •	User presence detection
 •	Servo-controlled access mechanism
-________________________________________
+
 System Architecture
 Hardware Components
 •	Raspberry Pi 5
@@ -79,6 +79,7 @@ Research Contributions
 •	AI-based Bangladeshi currency recognition system.
 •	GPS and GSM-enabled real-time monitoring.
 •	Multi-functional prototype combining mobility, finance, and safety support.
+
 Future Work
 •	Real-world autonomous mobility implementation
 •	PID-based closed-loop speed control
@@ -86,6 +87,7 @@ Future Work
 •	Improved obstacle avoidance
 •	Mobile application development
 •	Cloud-based monitoring and analytics
+
 Contact
 For collaborations, research discussions, or project inquiries:
 Rabeya Khan
